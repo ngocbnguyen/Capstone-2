@@ -36,7 +36,7 @@ function buildMountainCard(section, mountain) {
   let cardImg = document.createElement("img");
   cardImg.className = "card-img-top";
   cardImg.alt = mountain.name;
-  cardImg.src = "../images/" + mountain.img;
+  cardImg.src = "./enjoy-the-outdoors/images/" + mountain.img;
 
   let cardTitle = document.createElement("h5");
   cardTitle.className = "card-title";
