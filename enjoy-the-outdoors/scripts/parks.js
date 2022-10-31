@@ -3,8 +3,8 @@
 const locationRadioBtn = document.getElementById("locationRadioBtn");
 const parkTypeRadioBtn = document.getElementById("parkTypeRadioBtn");
 const selectList = document.getElementById("selectList");
-const nationalParkResultsTableBody = document.getElementById(
-    "nationalParkResultsTableBody");
+const parkTable = document.getElementById(
+    "parkTable");
 
 function loadSelections() {
     selectList.innerHTML = "";
@@ -26,38 +26,40 @@ function loadSelections() {
 
 function loadTableBody() {
     let selectedValue = selectList.value;
-    nationalParkResultsTableBody.innerHTML = "";
+    parkTable.innerHTML = "";
   
     if (locationRadioBtn.checked) {
       nationalParksArray.forEach((park) => {
         if (selectedValue === park.State) {
-          buildNationalParkRow(nationalParkResultsTableBody, park);
+          buildTable(parkTable, park);
         }
       });
     } else if (parkTypeRadioBtn.checked) {
       nationalParksArray.forEach((park) => {
         if (park.LocationName.includes(selectedValue)) {
-          buildNationalParkRow(nationalParkResultsTableBody, park);
+          buildTable(parkTable, park);
         }
       });
     }
   }
   
-  function buildNationalParkRow(tableBody, nationalPark) {
-    let row = tableBody.insertRow(-1);
+  function buildTable(table, park) {
+    let row = table.insertRow(-1);
     let cell1 = row.insertCell(0);
-    cell1.innerText = nationalPark.LocationName;
+    cell1.innerText = park.LocationName;
   
     let cell2 = row.insertCell(1);
-    cell2.innerText = nationalPark.Address;
+    cell2.innerText = park.Address;
     let cell3 = row.insertCell(2);
-    cell3.innerText = nationalPark.City;
+    cell3.innerText = park.City;
     let cell4 = row.insertCell(3);
-    cell4.innerText = nationalPark.State;
+    cell4.innerText = park.State;
     let cell5 = row.insertCell(4);
-    cell5.innerText = nationalPark.ZipCode;
+    cell5.innerText = park.ZipCode;
     let cell6 = row.insertCell(5);
-    cell6.innerText = nationalPark.Phone;
+    cell6.innerText = park.Phone;
+    let cell7 = row.insertCell(6);
+    cell7.innerText = park.Visit;
   }
 
 window.onload = () => {
