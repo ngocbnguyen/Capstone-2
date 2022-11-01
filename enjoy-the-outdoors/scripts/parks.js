@@ -51,12 +51,18 @@ function buildTable(table, park) {
 
   let cell2 = row.insertCell(1);
   cell2.innerText = park.Address;
+  if (park.Address == 0) {
+    cell2.innerText = "N/A";
+  }
   let cell3 = row.insertCell(2);
   cell3.innerText = park.City;
   let cell4 = row.insertCell(3);
   cell4.innerText = park.State;
   let cell5 = row.insertCell(4);
   cell5.innerText = park.ZipCode;
+  if (park.ZipCode == 0) {
+    cell5.innerText = "N/A";
+  }
   let cell6 = row.insertCell(5);
   cell6.innerText = park.Phone;
   if (park.Phone == 0) {
@@ -68,6 +74,7 @@ function buildTable(table, park) {
     cell7.innerText = "N/A";
   } else {
     a.href = park.Visit;
+    a.style.textDecoration = "none";
     a.innerText = "Website";
     cell7.append(a);
   }
