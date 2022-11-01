@@ -1,7 +1,7 @@
 "use strict";
 
 const mountainField = document.getElementById("mountainsField");
-const cardSection = document.getElementById("card-section");
+const mountainCard = document.getElementById("mountainCard");
 
 function loadMountSelect() {
   mountainField.innerHTML = "";
@@ -17,7 +17,7 @@ function loadMountainInfo() {
   let selectedValue = mountainField.value;
   mountainsArray.forEach((mountain) => {
     if (selectedValue === mountain.name) {
-      buildMountainCard(cardSection, mountain);
+      buildMountainCard(mountainCard, mountain);
     }
   });
 }
